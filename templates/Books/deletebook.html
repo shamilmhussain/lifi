@@ -1,0 +1,27 @@
+{% extends 'Books/addbook.html' %}
+{% load staticfiles %}
+{% block headcontent2 %}
+    button {
+    margin-top : 15px;
+    }
+{% endblock headcontent2 %}
+{% block addbook %}
+    <div id="content">
+        <div class="scroll">
+            <div class="scrollContainer">
+                <div class="panel" id="home">
+                    <div class="content_section">
+                        <h2>Delete a Book</h2>
+                        <form method="post">{% csrf_token %}
+                            Book ID :<br>
+                            <input type="text" name="bid" required><br>
+                            <button type="submit">Delete Book</button>
+                        </form>
+                    </div>
+                    <h2 style="color:red; ">{{ msg }}</h2>
+                    <p style="color:green; font-size:20px; line-height: 1.6;">{{ m1 }}<b>{{name}}</b>{{m2}}<b>{{id}}</b>{{m3}}</p>
+                </div>
+            </div> <!-- end of content -->
+        </div>
+    </div>
+{% endblock addbook %}

@@ -1,0 +1,22 @@
+{% extends 'Services/issue.html' %}
+{% load staticfiles %}
+{% block issue %}
+    <div id="content">
+        <div class="scroll">
+            <div class="scrollContainer">
+                <div class="panel" id="home">
+                    <div class="content_section">
+                        <h2>Renew a Book</h2>
+                        <form method="post">{% csrf_token %}
+                            Book ID :<br>
+                            <input type="text" name="bid" required><br>
+                            <button type="submit">Renew Book</button>
+                        </form>
+                    </div>
+                    <h2 style="color:{{ cf }} ">{{ msg|safe }}</h2>
+                    <p style="color:green; font-size:20px; line-height: 1.6;">{{ m1 }}<b>{{name}}</b>{{m2}}<b>{{id}}</b>{{m3}}</p>
+                </div>
+            </div> <!-- end of content -->
+        </div>
+    </div>
+{% endblock issue %}

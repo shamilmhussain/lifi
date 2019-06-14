@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+        <div id="tooplate_sidebar">
+
+            <div id="header">
+                <h1><a href="#"><img src="{% static "images/lifilogo.jpg" %}" title="High-Tech Library" alt="Notebook free html template" class="" width="200" height="100" /></a></h1>
+            </div>
+
+            <div id="menu">
+                <ul class="navigation">
+                    <li><a href="" class="selected menu_01">Home</a></li>
+                    <li><a href="" class="menu_02">Books</a></li>
+                    <li><a href="" class="menu_03">Services</a></li>
+                    <li><a href="" class="menu_04">Students</a></li>
+                </ul>
+            </div>
+		</div> <!-- end of sidebar -->
+
+        <div id="content">
+          <div class="scroll">
+            <div class="scrollContainer">
+              <div class="panel" id="home">
+                <div class="content_section">
+                  <h2>Library at your finger tips</h2>
+                  <img src="{% static "images/library.jpg" %}" alt="Image 01" width="500" height="250" class="image_wrapper image_fl" />
+                  <p><em>This is the new face of our existing library</em></p>
+                </div>
+                <div class="content_section last_section">
+                  <h2>Services</h2>
+
+                  <ul class="service_list">
+                    <li><a href="/BookIssue/" class="service_one">Issue</a></li>
+                  <li><a href="/BookRenew/" class="service_two">Renew</a></li>
+                  <li><a href="/BookReturn/" class="service_three">Return</a></li>
+                  </ul>
+                </div>
+              </div>  <!-- end of home -->
+
+              <div class="panel" id="books">
+                <div class="content_section">
+                  <h1>Books</h1>
+
+
+				 <ul class="service_list">
+                  <li><a href="/AddBook/" class="service_one">Add new book</a></li>
+                  <li><a href="/DeleteBook/" class="service_two">Delete a book</a></li>
+                  <li><a href="/SearchBookName/" class="service_three">Search by name </a></li>
+                  <li><a href="/SearchBookID/" class="service_four">Search by id</a></li>
+                  <li><a href="/SearchBookAuthor/" class="service_five">Search by author</a></li>
+                </ul>
+                <div class="content_section last_section">
+
+                </div>
+              </div> <!-- end of aboutus -->
+
+               <div class="panel" id="students">
+                <h1>Students</h1>
+
+
+                <div class="cleaner_h20"></div>
+
+                	<ul class="service_list">
+                 		<li><a href="/AddStudent/" class="service_one">Add student</a></li>
+                  		<li><a href="/ViewStudent/" class="service_two">Details of a student</a></li>
+                  		<li><a href="/DeleteStudent/" class="service_three">Delete student</a></li>
+                	</ul>
+              	</div> <!-- end of services -->
+
+
+
+                <div class="col_380 float_r"> </div>
+              </div>
+            </div>
+          </div><!-- end of scroll -->
+		</div>
+        {% endblock content %}

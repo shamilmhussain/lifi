@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block headcontent %}
+    <style>
+       button.mybutton {
+           background-color: #57af0c;
+           color: white;
+           padding: 14px 20px;
+           margin: 8px 0;
+           border: none;
+           cursor: pointer;
+           width: 98%;
+           text-align: left;
+           font-size: 18px;
+           font-weight: 400;
+           text-decoration: none;
+           font-family: Georgia, "Times New Roman", Times, serif;}
+
+            button:hover, button.selected {
+            color: #412810;}
+
+            ul.n {
+            list-style: none;
+            margin: 0 auto;
+            padding: 0;
+            }
+
+            ul.n li {
+                display: inline;
+                margin: 0;
+                padding: 0;
+            }
+
+            ul.n a {
+                display: block;
+                height: 47px;
+                padding: 12px 0 0 20px;
+                color: #fff;
+                font-size: 18px;
+                font-weight: 400;
+                text-decoration: none;
+                font-family: Georgia, "Times New Roman", Times, serif;
+            }
+
+            .menu_01 { background: url(../static/images/tooplate_menu_01.png) }
+            .menu_02 { background: url(../static/images/tooplate_menu_02.png) }
+            .menu_03 { background: url(../static/images/tooplate_menu_03.png) }
+            .menu_04 { background: url(../static/images/tooplate_menu_04.png) }
+            .menu_05 { background: url(../static/images/tooplate_menu_05.png) }
+
+            ul.n a:hover, ul.navigation a.selected {
+                color: #412810;
+            }
+
+            ul.n a:focus {
+                outline: none;
+            }
+            #m {
+                width: 236px;
+                padding-left: 60px;
+            }
+{% block headcontent2 %}
+{% endblock headcontent2 %}
+
+
+
+   </style>
+{% endblock headcontent %}
+
+{% block content %}
+    <div id="tooplate_sidebar">
+
+            <div id="header">
+                <h1><a href="#"><img src="{% static "images/lifilogo.jpg" %}" title="High-Tech Library" alt="Notebook free html template" class="" width="200" height="100" /></a></h1>
+            </div>
+
+            <div id="m">
+
+                    <!--<a href="/AddStudent/" class="selected menu_01"><button class="selected mybutton">Add Student</button></a>-->
+                    <!--<a href="/DetailStudent" class="menu_02"><button class="mybutton" style="background-color: #af3207">Details of a Student</button></a>-->
+                    <!--<a href="" class="menu_03"><button class="mybutton" style="background-color: #29b5d3">Delete a Student</button></a>-->
+                    <!--<a href="/" class="menu_04"><button class="mybutton" style="background-color: #de811a">Home</button></a>-->
+                    <ul class="n">
+                    <li><a href="/AddStudent/" class="selected menu_01">Add Student</a></li>
+                    <li><a href="/ViewStudent/" class="menu_02">Details of a Student</a></li>
+                    <li><a href="/DeleteStudent/" class="menu_03">Delete a Student</a></li>
+                    <li><a href="/" class="menu_04">Home</a></li>
+                    </ul>
+
+            </div>
+    </div>
+    <div id="content">
+        <div class="scroll">
+            <div class="scrollContainer">
+                <div class="panel" id="home">
+                    <div class="content_section">
+                        <h2>Add new Student</h2>
+                        <form method="post">{% csrf_token %}
+                            <h2 style="color:{{ color }}">{{msg}}</h2>
+
+                            Student ID :<br>
+                            <input type="text" name="sid"><br>
+                            Name :<br>
+                            <input type="text" name="sname"><br>
+                            Course :<br>
+                            <input type="text" name="scourse"><br>
+                            Sem :<br>
+                            <input type="number" name="ssem"><br>
+                            Phone Number :<br>
+                            <input type="number" name="sphn"><br><br>
+                            <button type="submit">Add Student</button>
+                        </form>
+                    </div>
+                </div>
+            </div> <!-- end of content -->
+        </div>
+    </div>
+{% endblock content %}

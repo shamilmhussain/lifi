@@ -1,0 +1,59 @@
+{% extends 'Books/addbook.html' %}
+{% load staticfiles %}
+{% block headcontent2 %}
+    button {
+    margin-top : 15px;
+    }
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      {{ dd2 }}
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color:{{dd }};
+    }
+{% endblock headcontent2 %}
+{% block addbook %}
+<div id="content">
+        <div class="scroll">
+            <div class="scrollContainer">
+                <div class="panel" id="home">
+                    <div class="content_section">
+                        <h2>Search by Book Name</h2>
+                        <form method="post">{% csrf_token %}
+                            Book Name :<br>
+                            <input type="text" name="bname" required><br>
+                            <button type="submit">Search Book</button>
+                        </form>
+                    </div>
+                    <h2>{{ dd3 }}</h2>
+                    <h2 style="color:red">{{ msg }}</h2>
+                        <table>
+                            <tr>
+                              {% for title in titles %}
+                                <th>{{ title }}</th>
+                              {% endfor %}
+                            </tr>
+                            {% for book in books %}
+                            <tr>
+                                <td>{{book.bid}}</td>
+                                <td>{{book.bname}}</td>
+                                <td>{{book.bcontent}}</td>
+                                <td>{{book.bauthor}}</td>
+                                <td>{{book.brackno}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                </div>
+            </div> <!-- end of content -->
+
+        </div>
+    </div>
+{% endblock addbook %}

@@ -1,0 +1,55 @@
+{% extends 'Students/addstudent.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div id="tooplate_sidebar">
+
+            <div id="header">
+                <h1><a href="#"><img src="{% static "images/lifilogo.jpg" %}" title="High-Tech Library" alt="Notebook free html template" class="" width="200" height="100" /></a></h1>
+            </div>
+
+            <div id="m">
+
+                    <!--<a href="/AddStudent/" class="selected menu_01"><button class="selected mybutton">Add Student</button></a>-->
+                    <!--<a href="/DetailStudent" class="menu_02"><button class="mybutton" style="background-color: #af3207">Details of a Student</button></a>-->
+                    <!--<a href="" class="menu_03"><button class="mybutton" style="background-color: #29b5d3">Delete a Student</button></a>-->
+                    <!--<a href="/" class="menu_04"><button class="mybutton" style="background-color: #de811a">Home</button></a>-->
+                    <ul class="n">
+                    <li><a href="/AddBook/" class="selected menu_01">Add a Book</a></li>
+                    <li><a href="/DeleteBook/" class="menu_03">Delete a Book</a></li>
+                    <li><a href="/SearchBookID/" class="menu_04">Search by ID</a></li>
+                        <li><a href="/SearchBookName/" class="menu_05">Search by Name</a></li>
+                        <li><a href="/SearchBookAuthor/" class="menu_01">Search by Author</a></li>
+                    <li><a href="/" class="menu_02">Home</a></li>
+                    </ul>
+
+            </div>
+    </div>
+{% block addbook %}
+    <div id="content">
+        <div class="scroll">
+            <div class="scrollContainer">
+                <div class="panel" id="home">
+                    <div class="content_section">
+                        <h2>Add new Book</h2>
+                        <form method="post">{% csrf_token %}
+                            <h2 style="color:{{ color }}">{{msg}}</h2>
+
+                            Book ID :<br>
+                            <input type="text" name="bid"><br>
+                            Name :<br>
+                            <input type="text" name="bname"><br>
+                            Content :<br>
+                            <input type="text" name="bcontent"><br>
+                            Author :<br>
+                            <input type="text" name="bauthor"><br>
+                            Rack Number :<br>
+                            <input type="number" name="brackno"><br><br>
+                            <button type="submit">Add Book</button>
+                        </form>
+                    </div>
+                </div>
+            </div> <!-- end of content -->
+        </div>
+    </div>
+{% endblock addbook %}
+{% endblock content %}

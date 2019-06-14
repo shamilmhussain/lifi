@@ -1,0 +1,49 @@
+{% extends 'Students/addstudent.html' %}
+{% load staticfiles %}
+{% block headcontent2 %}
+    button {
+    margin-top : 15px;
+    }
+{% endblock headcontent2 %}
+{% block content %}
+<div id="tooplate_sidebar">
+
+            <div id="header">
+                <h1><a href="#"><img src="{% static "images/lifilogo.jpg" %}" title="High-Tech Library" alt="Notebook free html template" class="" width="200" height="100" /></a></h1>
+            </div>
+
+            <div id="m">
+
+                    <!--<a href="/AddStudent/" class="selected menu_01"><button class="selected mybutton">Add Student</button></a>-->
+                    <!--<a href="/DetailStudent" class="menu_02"><button class="mybutton" style="background-color: #af3207">Details of a Student</button></a>-->
+                    <!--<a href="" class="menu_03"><button class="mybutton" style="background-color: #29b5d3">Delete a Student</button></a>-->
+                    <!--<a href="/" class="menu_04"><button class="mybutton" style="background-color: #de811a">Home</button></a>-->
+                    <ul class="n">
+                    <li><a href="/AddStudent/" class="selected menu_01">Add Student</a></li>
+                    <li><a href="/ViewStudent/" class="menu_02">Details of a Student</a></li>
+                    <li><a href="/DeleteStudent/" class="menu_03">Delete a Student</a></li>
+                    <li><a href="/" class="menu_04">Home</a></li>
+                    </ul>
+
+            </div>
+    </div>
+    <div id="content">
+        <div class="scroll">
+            <div class="scrollContainer">
+                <div class="panel" id="home">
+                    <div class="content_section">
+                        <h2>Delete a Student</h2>
+                        <form method="post">{% csrf_token %}
+                            Student ID :<br>
+                            <input type="text" name="sid" required><br>
+                            <button type="submit">Delete a Student</button>
+                        </form>
+                    </div>
+                    <h2 style="color:red; ">{{ msg }}</h2>
+                    <p style="color:green; font-size:20px; line-height: 1.6;">{{ m1 }}<b>{{name}}</b>{{m2}}<b>{{id}}</b>{{m3}}</p>
+                </div>
+            </div> <!-- end of content -->
+
+        </div>
+    </div>
+{% endblock content %}
